@@ -1,0 +1,174 @@
+@font-face {
+    font-family: bold;
+    src: url("https://informatik.hs-bremerhaven.de/tfiedler1/fonts/Montserrat-ExtraBold.otf");
+}
+
+@font-face {
+    font-family: regular;
+    src: url("https://informatik.hs-bremerhaven.de/tfiedler1/fonts/Montserrat-Medium.otf");
+}
+
+@font-face {
+    font-family: semi;
+    src: url("https://informatik.hs-bremerhaven.de/tfiedler1/fonts/Montserrat-SemiBold.otf");
+}
+
+:root {
+    --main-color: #002c50;
+    --sub-color: #699da8;
+    --box-color: #ecf6f9;
+    --box-color2: #eaf1f1;
+}
+
+*{
+    margin:0;
+    padding:0;
+    color: var(--main-color); 
+    overflow-x: hidden;    
+}
+
+body{
+    display:flex;
+    flex-direction: column;
+    font-family: "bold";
+    width:100vw;
+}
+
+.thumbnail{
+    width:100vw;
+    height:39em;
+    background-color: rgb(214, 214, 250);
+    overflow:hidden;
+    background-image: url("https://informatik.hs-bremerhaven.de/tfiedler1/assets/31 Dienstbarkasse „Möve“/moeveBig.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 120em;
+}
+
+.thumbnail > img{
+    width:100%;
+}
+
+.header{
+    display:flex;
+    flex-direction: column;
+    padding-top:4em;
+    width:73em;
+    margin: 0 auto;
+}
+
+.header-title{
+    font-size:3.3em;
+}
+
+.text-content{
+    padding-top:4em;
+    display:flex;
+}
+
+.text-content > .left{
+    padding: 0 5em;
+    flex-basis: 1px;
+    flex-grow:7;
+
+}
+.left > h3{
+    color: var(--sub-color);
+    padding-bottom: 1em;
+    font-size:1.6em;
+}
+.left > p{
+    color: var(--main-color); 
+    font-family: "regular";
+    font-size:1.2em;
+}
+
+.text-content > .right{
+    color: var(--main-color); 
+    flex-basis: 1px;
+    flex-grow: 4;
+}
+.right > h4{
+    padding-bottom: 1em;
+    font-size:1.3em;
+}
+.right > p{
+    padding-bottom: 1em;
+    font-size:0.9em;
+    padding-bottom: 4em;
+}
+.infobox{
+    background-color:var(--box-color);
+    width:100%;
+}
+
+.infobox > img{
+    padding-bottom:5px;
+    width:100%;
+}
+
+.infobox > .table{
+    padding: 1em;
+    display:flex;
+    flex-direction: column;
+}
+
+.row{
+    display:flex;
+}
+
+.row > div{
+    font-family: "regular";
+    font-size:0.8em;
+    flex-grow: 1;
+    flex-basis: 1px;
+    padding-bottom:1em;
+}
+
+.title{
+    display:flex;
+    background-color: var(--box-color2);
+    font-family: "regular";
+    margin-right:50%;
+    margin-top:2em;
+}
+.titlePart1{
+    width:85%;
+    border-bottom: 30px solid #002c50;
+    display:flex;
+    align-items:flex-end;
+    justify-content: flex-end;
+}
+.titlePart2{
+    text-align: right;
+}
+.titlePart2 > h2{
+    font-size: 2em;
+    padding-top: 1em;
+}
+
+.section{
+    display:flex;
+    background-color: var(--box-color2);
+    flex-direction: column;
+}
+.title2{
+    display:flex;
+    background-color: white;
+    font-family: "regular";
+    width:50%
+}
+
+.footer{
+    border-top: 3px solid #bedee6;
+    width: 73em;
+    margin: 0 auto;
+    text-align:center;
+    padding-top:3em;
+}
+
+.footer a{
+    font-size:2em;
+}
+
+
