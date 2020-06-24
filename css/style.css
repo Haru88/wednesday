@@ -18,6 +18,7 @@
     --sub-color: #699da8;
     --box-color: #ecf6f9;
     --box-color2: #eaf1f1;
+    --btn-color: #bedee6;
 }
 
 *{
@@ -53,7 +54,7 @@ body{
     display:flex;
     flex-direction: column;
     padding-top:4em;
-    width:73em;
+    max-width:73em;
     margin: 0 auto;
 }
 
@@ -64,12 +65,15 @@ body{
 .text-content{
     padding-top:4em;
     display:flex;
+    flex-wrap: wrap;
 }
 
 .text-content > .left{
     padding: 0 5em;
     flex-basis: 1px;
     flex-grow:7;
+    flex-basis: 500px;
+    flex-grow: 3;
 
 }
 .left > h3{
@@ -87,6 +91,8 @@ body{
     color: var(--main-color); 
     flex-basis: 1px;
     flex-grow: 4;
+    flex-basis: 400px;
+    flex-grow: 1;
 }
 .right > h4{
     padding-bottom: 1em;
@@ -161,14 +167,76 @@ body{
 
 .footer{
     border-top: 3px solid #bedee6;
-    width: 73em;
+    max-width:73em;
     margin: 0 auto;
     text-align:center;
     padding-top:3em;
+    padding-bottom:5em;
 }
 
 .footer a{
     font-size:2em;
+}
+
+.webglcontainer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    max-width:73em;
+    height: 36em;
+    margin: 0 auto;
+    text-align:center;
+    margin-top:3em;
+    margin-bottom:3em;
+}
+
+.blurredbg{
+    width: 100%;
+    height: 100%;
+    background-image: url("https://informatik.hs-bremerhaven.de/tfiedler1/assets/31 Dienstbarkasse „Möve“/thumbnail.JPG");
+    background-repeat: center;
+    background-size: cover;
+    filter: blur(8px);
+}
+
+.showBtn{
+    position: absolute;
+    z-index: 4;
+    background-color: var(--btn-color);
+    color: var(--main-color);
+    font-family: "bold";
+    font-size:0.8em;
+    border: none;
+    padding:1em;
+    font-size: 1.5em;
+    transition: all 500ms ease;
+}
+
+.showBtn:hover{
+    color: var(--btn-color);
+    background-color:var(--main-color);
+}
+
+.image-gallery{
+    justify-content: center;
+    background-color: white;
+    padding-top:4em;
+    padding-bottom:12em;
+    display:flex;
+    flex-wrap: wrap;
+    max-width: 73em;
+    margin: 0 auto;
+}
+
+.gallery-element{
+    flex-basis:200px;
+    margin: 5px;
+    box-shadow: 1px 1px 1px 1.5px var(--main-color);
+}
+.gallery-element img{
+    width: 100%;
+    height:200px;
+    object-fit: cover;
 }
 
 

@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HALBMODELL | DSM Bremerhaven</title>
-    <script src=""></script>
+
+    <script src="./js/libs/three.min.js"></script>
+	<script src="./js/libs/OrbitControls.js"></script>
+	<script src="./js/libs/GLTFLoader.js"></script>
+    <script src="./js/libs/DRACOLoader.js"></script>
 </head>
 
 <body>
-    <div class="thumbnail">
-        <script>
-            const _ = document.querySelector(".thumbnail");
-            _.style.backgroundSize = window.innerWidth;
-            window.addEventListener("scroll", () => _.style.backgroundSize = `${window.innerWidth + (window.scrollY / 2)}px`);
-        </script>
-    </div>
+    <div class="thumbnail"></div>
     <div class="header">
         <h1 class="header-title">Das Mittwochs Modell - Der Blankeneser Kielewer von 1860</h1>
         <div class="text-content">
@@ -74,9 +71,12 @@
         <br><br><br><br>
     </div>
     <div class="section">
-        <div class="webGLContainer">
-            <br><br><br><br><br><br><br><br><br><br><br>
-        </div>     
+
+        <div class="webglcontainer">
+            <button class="showBtn">3D-Modell anzeigen<br>(Download 2.5mb)</button>
+            <div class="blurredbg"></div>
+        </div>
+
         <div class="title2">
             <div class="titlePart1">
                 <div class="titlePart2">
@@ -85,11 +85,41 @@
             </div>
         </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="image-gallery">
+        <a href="https://informatik.hs-bremerhaven.de/tfiedler1/assets/31 Dienstbarkasse „Möve“/thumbnail.JPG" class="gallery-element" style="width:200px; height:200px;">
+            <img src="https://informatik.hs-bremerhaven.de/tfiedler1/assets/31 Dienstbarkasse „Möve“/thumbnail.JPG">
+        </a>
+
+        <a href="https://informatik.hs-bremerhaven.de/tfiedler1/assets/31 Dienstbarkasse „Möve“/moeveBig.jpg" class="gallery-element" style="width:200px; height:200px;">
+            <img src="https://informatik.hs-bremerhaven.de/tfiedler1/assets/31 Dienstbarkasse „Möve“/moeveBig.jpg">
+        </a>
+
+        <a href="https://informatik.hs-bremerhaven.de/tfiedler1/assets/42 Besanewer „Gretchen“/thumbnail.JPG" class="gallery-element" style="width:200px; height:200px;">
+            <img src="https://informatik.hs-bremerhaven.de/tfiedler1/assets/42 Besanewer „Gretchen“/thumbnail.JPG">
+        </a>
+
+        <a href="https://informatik.hs-bremerhaven.de/tfiedler1/assets/24 Dienstfahrzeug „Juist“/thumbnail.JPG" class="gallery-element" style="width:200px; height:200px;">
+            <img src="https://informatik.hs-bremerhaven.de/tfiedler1/assets/24 Dienstfahrzeug „Juist“/thumbnail.JPG">
+        </a>
+
+        <a href="https://informatik.hs-bremerhaven.de/tfiedler1/assets/31 Dienstbarkasse „Möve“/moeveBig.jpg" class="gallery-element" style="width:200px; height:200px;">
+            <img src="https://informatik.hs-bremerhaven.de/tfiedler1/assets/31 Dienstbarkasse „Möve“/moeveBig.jpg">
+        </a>
+
+        <a href="https://informatik.hs-bremerhaven.de/tfiedler1/assets/42 Besanewer „Gretchen“/thumbnail.JPG" class="gallery-element" style="width:200px; height:200px;">
+            <img src="https://informatik.hs-bremerhaven.de/tfiedler1/assets/42 Besanewer „Gretchen“/thumbnail.JPG">
+        </a>
+
+        <a href="https://informatik.hs-bremerhaven.de/tfiedler1/assets/24 Dienstfahrzeug „Juist“/thumbnail.JPG" class="gallery-element" style="width:200px; height:200px;">
+            <img src="https://informatik.hs-bremerhaven.de/tfiedler1/assets/24 Dienstfahrzeug „Juist“/thumbnail.JPG">
+        </a>
+    </div>
+
     <div class="footer">
         <a href="https://www.dsm.museum/">Zurück zur Hauptseite</a>
-        <br><br><br><br><br><br><br><br><br><br><br>
     </div>
 </body>
+<script type="module" src="./js/main.js"></script>
 
 </html>

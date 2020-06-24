@@ -1,0 +1,74 @@
+export class WebGLHandler {
+
+    constructor() {
+
+    }
+
+    async createScene() {
+        const con = document.querySelector(".webglcontainer");
+        console.log(con);
+        this._init(con, { antialias: true, alpha: false });
+        await this._loadAsset(con, "https://informatik.hs-bremerhaven.de/tfiedler1/assets/31 Dienstbarkasse „Möve“/mesh.glb");
+        console.log(con);
+        return con;
+    }
+
+    async _loadGLTF(url) {
+        const gltfLoader = new THREE.GLTFLoader();
+        THREE.DRACOLoader.setDecoderPath('js/libs/draco_decoder/');
+        gltfLoader.setDRACOLoader(new THREE.DRACOLoader());
+
+        return new Promise(resolve => gltfLoader.load(url, resolve));
+    }
+
+    async _loadAsset(container, url) {
+        const model = await this._loadGLTF(url);
+        model.scene.traverse(child => {
+            if (child.isMesh) child.material.side = THREE.DoubleSide;
+        });
+        this.scene.add(model.scene);
+        container.appendChild(this.renderer.domElement);
+        this._resize();
+        this.scene.add(new THREE.AmbientLight(0xFFFFFF));
+
+        return Promise.resolve;
+    }
+
+    _init(container, options = { antialias: false, alpha: false }) {
+
+        this.renderer = new THREE.WebGLRenderer({
+            antialias: options.antialias, alpha: options.alpha
+        });
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setSize(container.offsetWidth, container.offsetHeight);
+        this.renderer.gammaOutput = true;
+        this.renderer.setClearColor(0x000000, 0);
+
+        this.scene = new THREE.Scene();
+        if (!options.alpha) this.scene.background = new THREE.Color(0xffffff);
+
+        this.camera = new THREE.PerspectiveCamera(55, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+        this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+        this.camera.position.copy(new THREE.Vector3(4, 0, 0));
+
+        this._resize = () => {
+            const self = this;
+            setTimeout(function () {
+                self.camera.aspect = container.offsetWidth / container.offsetHeight;
+                self.camera.updateProjectionMatrix();
+                self.renderer.setSize(container.offsetWidth, container.offsetHeight);
+            }, 100);
+        }
+        window.addEventListener('resize', this._resize, false);
+
+        this._render = () => {
+            requestAnimationFrame(this._render);
+            this.controls.update();
+            this.renderer.render(this.scene, this.camera);
+        }
+
+        this._render();
+
+        return Promise.resolve;
+    }
+}
