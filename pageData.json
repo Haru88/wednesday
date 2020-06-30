@@ -1,0 +1,23 @@
+{
+    "DE": {
+        "title": "Halbmodelle der Junge- Werft aus Wewelsfleth",  
+        "introduction": "Die hier gezeigten 3D-Digitalisate zeigen Halbmodelle aus dem schifffahrtshistorischen Nachlass Gustav Junges. Ein Halbmodell ist ein Konstruktionsmodell, das den halben Schiffsrumpf von der Seite zeigt. Der Zweck von Halbmodelle besteht zum einen in der Modellierung der Spantenverläufe. Ausgehend von diesen Modellen entwickeln die Schiffsbauer Schablonen in der originalen Größe des zu bauenden Fahrzeugs. Zum anderen sind die Modelle auch für die Auftraggeber sehr interessant, so kann ein erster realistischer Eindruck vom Aussehen ihres zukünftigen Schiffes gewonnen werden. In der Regel wird die Steuerbordseite eines Schiffrumpfes dargestellt." , 
+        "expand":"Die Junge-Werft wurde 1859 von den Brüdern Christopher und Johann Junge als zweite Werft in Wewelsfleth gegründet. Die Werft entwickelte sich in nur kurzer Zeit zu dem wichtigsten Schiffbauplatz in der Region der Unterelbe. Nachdem Christopher Junge aus dem Betrieb ausgestiegen war, übernahm sein Bruder Johann die alleinige Leitung der Werft. Christopher Junge blieb der Werft jedoch stets verbunden. Johann Junges Sohn Gustav machte eine Lehre unter anderem im Betrieb seines Vaters, wurde Prokurist und übernahm schließlich die Leitung der Werft im Jahr 1910. Nach dem Ende des 1. Weltkrieges verkaufte Gustav Junge die Werft, blieb allerdings in leitender Position, bis zu ihrer endgültigen Schließung Ende der 1920er Jahre.",    
+        "sortby": "Sortiert nach:",    
+        "yearofcontruction": "Baujahr",
+        "searching": "Suche nach Einträgen...",
+        "ascending": "Aufsteigend",
+        "descending": "Absteigend",
+        "loading": "Model wird geladen"
+    },
+    "EN": {
+        "title": "Half models of the Junge <br>shipyard in Wewelsfleth",
+        "introduction": "The 3D digital copies show half models of the Junge shipyard which was located in Wewelsfleth until its sale in 1918. A half model is a construction model that shows half the hull from the side. The purpose of half models was to model the ribs. After these models the ship was built. <br><br>The Junge shipyard was founded in 1859 by the brothers Christopher and Johann Junge as the second shipyard in Wewelsfleth. Within a short time it developed into the most important shipbuilding site in Wewelsfleth. After Christopher Junge left the company, his brother Johann took over the sole management of the shipyard. However, Christopher Junge always remained associated with the shipyard. Johann Junge's son Gustav did an apprenticeship in his father's company, became an authorised signatory and finally took over the management of the shipyard in 1910. After the end of World War I Gustav sold the shipyard, but remained in a leading position until its final closure at the end of the 1920s.",
+        "sortby": "Sort by:",
+        "yearofcontruction": "Year of Construction",
+        "searching": "Search for entries...",
+        "ascending": "Ascending",
+        "descending": "Descending",
+        "loading": "Model is loading"
+    }
+}

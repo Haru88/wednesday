@@ -1,18 +1,22 @@
 export class WebGLHandler {
 
-    constructor() {
-
-    }
-
-    async createScene() {
+    /**
+     * @async
+     * @param  {String} url
+     */
+    async createScene(url) {
+        this.closeAsset();
         const con = document.querySelector(".webglcontainer");
-        console.log(con);
+        con.innerHTML = null;
         this._init(con, { antialias: true, alpha: false });
-        await this._loadAsset(con, "https://informatik.hs-bremerhaven.de/tfiedler1/assets/31 Dienstbarkasse „Möve“/mesh.glb");
-        console.log(con);
+        await this._loadAsset(con, url);
         return con;
     }
 
+    /**
+     * @async
+     * @param  {String} url
+     */
     async _loadGLTF(url) {
         const gltfLoader = new THREE.GLTFLoader();
         THREE.DRACOLoader.setDecoderPath('js/libs/draco_decoder/');
@@ -21,6 +25,11 @@ export class WebGLHandler {
         return new Promise(resolve => gltfLoader.load(url, resolve));
     }
 
+    /**
+     * @async
+     * @param  {HTMLElement} container
+     * @param  {String} url
+     */
     async _loadAsset(container, url) {
         const model = await this._loadGLTF(url);
         model.scene.traverse(child => {
@@ -34,6 +43,36 @@ export class WebGLHandler {
         return Promise.resolve;
     }
 
+    
+    /**
+     * @description Dispose the scene to clear the GPU memory
+     */
+    closeAsset() {
+        if(this.scene){
+            while (this.scene.children.length) {
+                if (this.scene.children[0] instanceof THREE.Scene) {
+                    const inner = this.scene.children[0].children[0].children;
+                    inner.forEach(mesh => {
+                        if (mesh.geometry) {
+                            mesh.geometry.dispose(); 
+                            mesh.geometry = undefined;
+                        }
+                        if (mesh.material) {
+                            mesh.material.dispose(); 
+                            mesh.material = undefined;
+                        }
+                    });
+        
+                }
+                this.scene.remove(this.scene.children[0]);
+            }
+        }
+    }
+
+    /**
+     * @param  {HTMLElement} container
+     * @param  {Object} options={antialias
+     */
     _init(container, options = { antialias: false, alpha: false }) {
 
         this.renderer = new THREE.WebGLRenderer({

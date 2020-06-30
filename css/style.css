@@ -2,12 +2,10 @@
     font-family: bold;
     src: url("https://informatik.hs-bremerhaven.de/tfiedler1/fonts/Montserrat-ExtraBold.otf");
 }
-
 @font-face {
     font-family: regular;
     src: url("https://informatik.hs-bremerhaven.de/tfiedler1/fonts/Montserrat-Medium.otf");
 }
-
 @font-face {
     font-family: semi;
     src: url("https://informatik.hs-bremerhaven.de/tfiedler1/fonts/Montserrat-SemiBold.otf");
@@ -27,7 +25,6 @@
     color: var(--main-color); 
     overflow-x: hidden;    
 }
-
 body{
     display:flex;
     flex-direction: column;
@@ -35,22 +32,32 @@ body{
     width:100vw;
 }
 
+
+/*HEADER*/
+
+
+
 .thumbnail{
     width:100vw;
     height:39em;
     background-color: rgb(214, 214, 250);
     overflow:hidden;
     background-image: url("https://informatik.hs-bremerhaven.de/tfiedler1/assets/31 Dienstbarkasse „Möve“/moeveBig.jpg");
-    background-position: center;
     background-repeat: no-repeat;
-    background-size: 120em;
+    background-size: cover;
 }
 
 .thumbnail > img{
     width:100%;
 }
 
-.header{
+
+
+/*SECTION-TEXT*/
+
+
+
+.section-text{
     display:flex;
     flex-direction: column;
     padding-top:4em;
@@ -63,18 +70,15 @@ body{
 }
 
 .text-content{
-    padding-top:4em;
     display:flex;
-    flex-wrap: wrap;
+    padding-top:4em;
+    margin-bottom:2em;
 }
 
 .text-content > .left{
+    flex: 2 1 auto;
+    width:80%;
     padding: 0 5em;
-    flex-basis: 1px;
-    flex-grow:7;
-    flex-basis: 500px;
-    flex-grow: 3;
-
 }
 .left > h3{
     color: var(--sub-color);
@@ -85,20 +89,19 @@ body{
     color: var(--main-color); 
     font-family: "regular";
     font-size:1.2em;
+    margin-bottom: 1em;
 }
 
 .text-content > .right{
+    flex:1 1 auto;
+    width: 50%;
     color: var(--main-color); 
-    flex-basis: 1px;
-    flex-grow: 4;
-    flex-basis: 400px;
-    flex-grow: 1;
 }
-.right > h4{
+.right > .text > h4{
     padding-bottom: 1em;
     font-size:1.3em;
 }
-.right > p{
+.right > .text > p{
     padding-bottom: 1em;
     font-size:0.9em;
     padding-bottom: 4em;
@@ -131,71 +134,46 @@ body{
     padding-bottom:1em;
 }
 
+
+
+/*SECTION-WEBGL*/
+
+
+
+.section-webgl{
+    display:flex;
+    flex-direction: column;
+}
+
 .title{
     display:flex;
     background-color: var(--box-color2);
     font-family: "regular";
     margin-right:50%;
-    margin-top:2em;
-}
-.titlePart1{
-    width:85%;
-    border-bottom: 30px solid #002c50;
-    display:flex;
-    align-items:flex-end;
-    justify-content: flex-end;
-}
-.titlePart2{
-    text-align: right;
-}
-.titlePart2 > h2{
-    font-size: 2em;
-    padding-top: 1em;
 }
 
-.section{
-    display:flex;
+.section-body{
     background-color: var(--box-color2);
-    flex-direction: column;
-}
-.title2{
-    display:flex;
-    background-color: white;
-    font-family: "regular";
-    width:50%
-}
-
-.footer{
-    border-top: 3px solid #bedee6;
-    max-width:73em;
-    margin: 0 auto;
-    text-align:center;
-    padding-top:3em;
-    padding-bottom:5em;
-}
-
-.footer a{
-    font-size:2em;
-}
-
-.webglcontainer{
     display:flex;
     justify-content: center;
     align-items: center;
-    max-width:73em;
+    width:100%;
     height: 36em;
     margin: 0 auto;
     text-align:center;
-    margin-top:3em;
-    margin-bottom:3em;
+}
+
+.webglcontainer{
+    width:90%;
+    height:90%;
 }
 
 .blurredbg{
-    width: 100%;
-    height: 100%;
-    background-image: url("https://informatik.hs-bremerhaven.de/tfiedler1/assets/31 Dienstbarkasse „Möve“/thumbnail.JPG");
-    background-repeat: center;
+    width: 80%;
+    height: 80%;
+    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     filter: blur(8px);
 }
 
@@ -217,6 +195,15 @@ body{
     background-color:var(--main-color);
 }
 
+.icon{
+    color:white;
+}
+
+
+/*SECTION-IMAGEGALLERY*/
+
+
+
 .image-gallery{
     justify-content: center;
     background-color: white;
@@ -228,8 +215,19 @@ body{
     margin: 0 auto;
 }
 
+.title2{
+    display:flex;
+    background-color: white;
+    font-family: "regular";
+    width:50%
+}
+
+.title-bg{
+    background-color: var(--box-color2);
+}
+
 .gallery-element{
-    flex-basis:200px;
+    flex-basis:270px;
     margin: 5px;
     box-shadow: 1px 1px 1px 1.5px var(--main-color);
 }
@@ -237,6 +235,48 @@ body{
     width: 100%;
     height:200px;
     object-fit: cover;
+}
+
+
+
+/*SECTION-FOOTER*/
+
+
+
+.section-footer{
+    border-top: 3px solid #bedee6;
+    width:80%;
+    margin: 0 auto;
+    text-align:center;
+    padding-top:3em;
+    padding-bottom:5em;
+}
+
+.section-footer a{
+    font-size:2em;
+}
+
+
+
+/* SECTION WEBGL & IMAGEGALLERY */
+
+
+
+.titlePart1{
+    width:85%;
+    border-bottom: 30px solid #002c50;
+    display:flex;
+    align-items:flex-end;
+    justify-content: flex-end;
+}
+
+.titlePart2{
+    text-align: right;
+}
+
+.titlePart2 > h2{
+    font-size: 2em;
+    padding-top: 1em;
 }
 
 
