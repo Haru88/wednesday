@@ -1,22 +1,17 @@
 import { WebGLHandler } from "./webglhandler.js";
-import { ThreejsLightbox } from "./threejsLightBox.js"
-import { DIV, A, IMG, H3, H4, P, $ } from "./domUtils.js"
+import { ThreejsLightbox } from "./threejsLightBox.js";
+import { DIV, A, IMG, H3, H4, P, SMALL, $ } from "./domUtils.js";
+import { settings } from "../SETTINGS.js";
 
 (async () => {
 
-	const currentID = "75";
+	let pageData = await (await fetch(settings().PAGEDATA_URL)).json();
 
-	let pageData = await (await fetch("pageData.json")).json();
-
-	const url = "php/findFiles.php?key=values.json&start=../../assets/";
-	const assetData = await (await fetch(url)).json();
+	const assetData = await (await fetch(settings().ASSET_URL)).json();
 
 	assetData.sort((a, b) => parseInt(a.id) - parseInt(b.id));
-	assetData.forEach(element => {
-		element.url = element.url.replace(/\.\.\//, "");
-	});
 
-	const assetFoundById = assetData.find(el => el.id == currentID);
+	const assetFoundById = assetData.find(el => el.id == settings().CURRENT_ID);
 
 	await mapDataOnPage(pageData, assetFoundById);
 	refreshFsLightbox();
@@ -30,10 +25,14 @@ import { DIV, A, IMG, H3, H4, P, $ } from "./domUtils.js"
 
 	const threelightbox = new ThreejsLightbox();
 	const gl = new WebGLHandler();
+	let currWebGLInstance = null;
 
 	$(".showBtn").addEventListener("click", async () => {
 		threelightbox.open();
-		await gl.createScene(assetFoundById.url + "mesh.glb");
+		if(!currWebGLInstance){
+			currWebGLInstance = await gl.createScene(assetFoundById.url + settings().ASSET_FILE);
+		} 
+		gl.resetAsset();
 	});
 
 
@@ -50,9 +49,12 @@ import { DIV, A, IMG, H3, H4, P, $ } from "./domUtils.js"
 
 		await fetch(assetData.url + "text.txt").then(t => t.text().then(text => {
 
+			const left = new DIV($(".left"));
+
+			left.app(new SMALL().text(settings().DATE).class(".text-date"));
+
 			const split = text.split("\n")
 
-			const left = new DIV($(".left"));
 			left.app(new H3().text(split[0]));
 
 			split.shift();
@@ -67,7 +69,7 @@ import { DIV, A, IMG, H3, H4, P, $ } from "./domUtils.js"
 
 		new DIV($(".right .table"))
 			.app(new DIV().class("row")
-				.app(new DIV().text("name: "))
+				.app(new DIV().text("Name: "))
 				.app(new DIV().text(assetData.name))
 			).app(new DIV().class("row")
 				.app(new DIV().text("Baujahr: "))
@@ -76,9 +78,8 @@ import { DIV, A, IMG, H3, H4, P, $ } from "./domUtils.js"
 
 		new DIV($(".blurredbg")).attr("style","background-image:" + `url(\"${assetData.url}thumbnail.JPG\")`);
 
-		const itemData = await (await fetch("php/findFiles.php?key=items&start=../" + assetData.url)).json();
+		const itemData = await (await fetch( settings().ITEM_URL + assetData.url)).json();
 		itemData.forEach(item => {
-			item = item.replace(/\.\.\//, "");
 			$(".image-gallery").append(
 				new A().attr("data-fslightbox", "g").attr("href", item).class("gallery-element")
 					.app(new IMG().attr("src", item)).dom);

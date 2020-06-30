@@ -5,7 +5,6 @@ export class WebGLHandler {
      * @param  {String} url
      */
     async createScene(url) {
-        this.closeAsset();
         const con = document.querySelector(".webglcontainer");
         con.innerHTML = null;
         this._init(con, { antialias: true, alpha: false });
@@ -67,6 +66,13 @@ export class WebGLHandler {
                 this.scene.remove(this.scene.children[0]);
             }
         }
+    }
+
+    /**
+     * @description resets the camerapositions etc.
+     */
+    resetAsset(){
+        this.camera.position.copy(new THREE.Vector3(4, 0, 0));
     }
 
     /**

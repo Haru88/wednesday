@@ -11,16 +11,14 @@ export class ThreejsLightbox {
             .app(new DIV().class("fslightbox-nav")
                 .app(new DIV().class("fslightbox-toolbar")
                     .app(new DIV().class("fslightbox-toolbar-button fslightbox-flex-centered icon")
-                        .html("&#10063")
                         .click(() => toggleFullscreen())
                     )
                     .app(new DIV().class("fslightbox-toolbar-button fslightbox-flex-centered icon")
-                        .html("&#10006")
                         .click(() => this.close())
                     )
                 )
             ).app(new DIV().class("fslightbox-full-dimension fslightbox-flex-centered")
-                .app(new DIV().class("webglcontainer"))
+                .app(new DIV().class("webglcontainer").text("Modell wird geladen.."))
             )
     }
 

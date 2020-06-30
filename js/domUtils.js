@@ -84,6 +84,7 @@ export class H4 extends DomElement { constructor(el = null) { el ? super(el) : s
 export class IMG extends DomElement { constructor(el = null) { el ? super(el) : super("img"); } }
 export class A extends DomElement { constructor(el = null) { el ? super(el) : super("a"); } }
 export class BUTTON extends DomElement { constructor(el = null) { el ? super(el) : super("button"); } }
+export class SMALL extends DomElement { constructor(el = null) { el ? super(el) : super("small"); } }
 
 /**
  * @description shortens the standard dom syntax
