@@ -1,14 +1,14 @@
 @font-face {
     font-family: bold;
-    src: url("https://informatik.hs-bremerhaven.de/tfiedler1/fonts/Montserrat-ExtraBold.otf");
+    src: url("../fonts/Montserrat-ExtraBold.otf");
 }
 @font-face {
     font-family: regular;
-    src: url("https://informatik.hs-bremerhaven.de/tfiedler1/fonts/Montserrat-Medium.otf");
+    src: url("../fonts/Montserrat-Medium.otf");
 }
 @font-face {
     font-family: semi;
-    src: url("https://informatik.hs-bremerhaven.de/tfiedler1/fonts/Montserrat-SemiBold.otf");
+    src: url("../fonts/Montserrat-SemiBold.otf");
 }
 
 :root {
@@ -42,7 +42,7 @@ body{
     height:39em;
     background-color: rgb(214, 214, 250);
     overflow:hidden;
-    background-image: url("https://informatik.hs-bremerhaven.de/tfiedler1/assets/31 Dienstbarkasse „Möve“/moeveBig.jpg");
+    background-image: url("../bigheader.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -75,6 +75,10 @@ body{
     margin-bottom:2em;
 }
 
+.text-date{
+    font-family: "regular";
+}
+
 .text-content > .left{
     flex: 2 1 auto;
     width:80%;
@@ -82,6 +86,7 @@ body{
 }
 .left > h3{
     color: var(--sub-color);
+    padding-top: 0.3em;
     padding-bottom: 1em;
     font-size:1.6em;
 }

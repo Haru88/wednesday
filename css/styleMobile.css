@@ -1,6 +1,20 @@
+@media only screen and (max-width: 1200px){
+    *{
+        font-size: 95%;
+    }
+}
+
+@media only screen and (max-width: 1100px){
+    *{
+        font-size: 93%;
+    }
+}
+
 @media only screen and (max-width: 980px) and (orientation:portrait){
 
-    
+    *{
+        font-size: 100%;
+    }
 
     /*HEADER*/
 
@@ -68,6 +82,8 @@
 
     /* TITLE */
 
+
+
     .titlePart1{
         border-bottom: 60px solid #002c50;
     }
@@ -76,4 +92,6 @@
         font-size: 3.5em;
         padding-top: 1em;
     }
+
 }
+
